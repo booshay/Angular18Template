@@ -1,27 +1,55 @@
-# Angular18Template
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.7.
+# Setting Up a New Angular Project from Template
 
-## Development server
+After cloning your Angular template project, follow these steps to rename and configure it for a new application.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 1. Rename Root Folder
+Change the name of the root folder to reflect the new app’s name.
 
-## Code scaffolding
+## 2. Update `package.json`  lock file too
+In the `package.json` file:
+- Update the `"name"` field to the new app’s name.
+- Update the `"description"` field to describe the new app.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 3. Update Angular Configuration Files
+- **`angular.json`**: Under `"projects"`, replace instances of the template name with the new app name.
+- **Environment Files**: In `src/environments`, modify any environment-specific values like API URLs if needed.
 
-## Build
+## 4. Set HTML Title
+In **`src/index.html`**:
+- Change the `<title>` tag to match the new app’s name so it appears correctly in the browser tab.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 5. Update App Module and Main Components
+In **`src/app/app.module.ts`**:
+- Update any paths or settings that may be project-specific.
 
-## Running unit tests
+Check other main components or shared modules to replace any name references related to the original project.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 6. Update README
+In **`README.md`**:
+- Update the title and description to reflect the new project’s purpose.
 
-## Running end-to-end tests
+## 7. Configure Git Remote
+If you're using a new Git repository, update the remote URL:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+git remote set-url origin new-repo-url
+```
 
-## Further help
+Alternatively, reinitialize the Git repository by deleting the existing `.git` folder:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+rm -rf .git
+git init
+git add .
+git commit -m "Initial commit for new app"
+git remote add origin new-repo-url
+git push -u origin main
+```
+
+## 8. Update Project-Specific Configurations (Optional)
+For environment variables, secrets, or deployment configurations (e.g., Docker or Kubernetes), adjust any project-specific settings.
+
+---
+
+After these updates, your new project will be ready with a unique identity and settings based on your template project.
